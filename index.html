@@ -44,7 +44,11 @@ img{
 /* THIS is what sets the visible left/right margin: the text is
    wider than the rat (the rat fills only 59% of its frame), so
    the text cap is the real margin control, not the image cap. */
-p{margin:0;max-width:clamp(240px,48vw,330px);text-wrap:balance}
+/* ch, not px: line count follows characters-per-line, so a px cap
+   silently changes the break count as the font scales. 31ch keeps
+   the announcement at 3 lines and the link lines at 1, at every
+   font size - and is ~19% wider than the 26ch it started at. */
+p{margin:0;max-width:31ch;text-wrap:balance}
 </style>
 
 <img src="rat.gif" alt="A rat dancing." width="480" height="480">

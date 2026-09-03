@@ -41,7 +41,10 @@ img{
   flex-direction:column;
   gap:clamp(8px,1.6vh,20px);
 }
-p{margin:0;max-width:26ch;text-wrap:balance}
+/* THIS is what sets the visible left/right margin: the text is
+   wider than the rat (the rat fills only 59% of its frame), so
+   the text cap is the real margin control, not the image cap. */
+p{margin:0;max-width:clamp(180px,52vw,260px);text-wrap:balance}
 </style>
 
 <img src="rat.gif" alt="A rat dancing." width="480" height="480">
@@ -57,7 +60,7 @@ p{margin:0;max-width:26ch;text-wrap:balance}
      Until GC_CODE is set, nothing loads and nothing is requested. -->
 <script>
 (function(){
-  var GC_CODE = "";                 // e.g. "purduerationality"
+  var GC_CODE = "purdue-rationality";
   if (!GC_CODE) return;
   var s = document.createElement("script");
   s.async = true;

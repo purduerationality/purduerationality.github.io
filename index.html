@@ -20,7 +20,7 @@ body{
   align-items:center;
   justify-content:center;
   gap:clamp(10px,2vh,26px);
-  padding:clamp(12px,2.5vh,32px) clamp(24px,6.5vw,64px);
+  padding:clamp(12px,2.5vh,32px) clamp(32px,9vw,88px);
   text-align:center;
   /* sized by width on phones, but capped by height on short
      screens so landscape still fits */
@@ -32,7 +32,7 @@ img{
   min-height:0;
   width:auto;
   height:auto;
-  max-width:min(100%,480px);
+  max-width:min(100%,400px);
   max-height:48vh;
   max-height:48dvh;
 }
@@ -51,3 +51,18 @@ p{margin:0;max-width:26ch;text-wrap:balance}
   <p>sign up for our mailing list <a href="https://forms.gle/xFBABVhJnRbKTusM6" target="_blank" rel="noopener">here</a></p>
   <p><a href="about.html">what's this about?</a></p>
 </div>
+
+<!-- Analytics: GoatCounter (privacy-friendly, no cookies).
+     Create a site at goatcounter.com, then put its code below.
+     Until GC_CODE is set, nothing loads and nothing is requested. -->
+<script>
+(function(){
+  var GC_CODE = "";                 // e.g. "purduerationality"
+  if (!GC_CODE) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://gc.zgo.at/count.js";
+  s.setAttribute("data-goatcounter", "https://" + GC_CODE + ".goatcounter.com/count");
+  document.head.appendChild(s);
+})();
+</script>

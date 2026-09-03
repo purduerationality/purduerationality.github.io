@@ -1,0 +1,53 @@
+<title>Purdue Rationality</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>
+/* The GIF has a baked white background (no alpha), so the page
+   ground must stay #ffffff or a 480x480 white box shows.
+
+   One screen, no scrolling: the page is a centred flex column
+   sized to the viewport, and the GIF is capped in BOTH axes so
+   it yields space to the text on short screens. dvh (not vh)
+   so mobile browser chrome is accounted for. */
+body{
+  background:#ffffff;
+  color:#000000;
+  margin:0;
+  box-sizing:border-box;
+  min-height:100vh;
+  min-height:100dvh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:clamp(10px,2vh,26px);
+  padding:clamp(12px,2.5vh,32px) clamp(16px,4vw,32px);
+  text-align:center;
+  /* sized by width on phones, but capped by height on short
+     screens so landscape still fits */
+  font-size:clamp(15px,min(4.6vw,3vh),26px);
+  line-height:1.4;
+}
+img{
+  flex:0 1 auto;
+  min-height:0;
+  width:auto;
+  height:auto;
+  max-width:min(100%,480px);
+  max-height:48vh;
+  max-height:48dvh;
+}
+.text{
+  display:flex;
+  flex-direction:column;
+  gap:clamp(8px,1.6vh,20px);
+}
+p{margin:0;max-width:26ch;text-wrap:balance}
+</style>
+
+<img src="rat.gif" alt="A rat dancing." width="480" height="480">
+
+<div class="text">
+  <p>Purdue Rationality, meeting every wednesday at 7pm in Stanley Coulter 114</p>
+  <p>sign up for our mailing list <a href="https://forms.gle/xFBABVhJnRbKTusM6" target="_blank" rel="noopener">here</a></p>
+  <p><a href="about.html">what's this about?</a></p>
+</div>

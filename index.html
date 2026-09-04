@@ -46,9 +46,9 @@ img{
    the text cap is the real margin control, not the image cap. */
 /* ch, not px: line count follows characters-per-line, so a px cap
    silently changes the break count as the font scales. 31ch keeps
-   the announcement at 3 lines and the link lines at 1, at every
-   font size - and is ~19% wider than the 26ch it started at. */
-p{margin:0;max-width:31ch;text-wrap:balance}
+   the announcement at 2 lines on desktop and the link lines at 1.
+   Phones are narrower than 40ch and wrap to 3, which is fine. */
+p{margin:0;max-width:40ch;text-wrap:balance}
 </style>
 
 <img src="rat.gif" alt="A rat dancing." width="480" height="480">

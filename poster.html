@@ -7,16 +7,21 @@
    same default serif. Print-specific changes: the animated GIF
    becomes a fixed frame (print stops on an arbitrary frame
    otherwise), and the two links become scannable QR codes.
+
+   @page margin is 0 on purpose. Browsers put their own header
+   and footer - title, URL, page number, date - in the page
+   margin box, so removing the margin removes them. The safe
+   area comes back as padding on .sheet instead.
    ============================================================ */
-@page{ size:letter portrait; margin:0.5in; }
+@page{ size:letter portrait; margin:0; }
 
 html{background:#d8d8d8}
 body{margin:0;color:#000;font-size:12pt}
 
 .sheet{
-  /* the printable area of a Letter page at 0.5in margins */
-  width:7.5in; height:10in;
-  margin:0.4in auto; padding:0;
+  width:8.5in; height:11in;
+  padding:0.5in;                 /* inside the printer's unprintable edge */
+  margin:0.4in auto;
   background:#fff;
   box-shadow:0 2px 14px rgba(0,0,0,.28);
   display:flex; flex-direction:column;
@@ -46,19 +51,15 @@ figcaption{ font-size:13pt; line-height:1.3; margin-top:.07in }
 
 /* screen-only helper; never printed */
 .hint{
-  max-width:7.5in; margin:0 auto 1in; text-align:center;
-  font-size:11pt; color:#333;
+  max-width:8.5in; margin:0 auto 1in; text-align:center;
+  font-size:11pt; color:#333; line-height:1.6;
 }
 .hint button{ font:inherit; padding:.35em 1em; cursor:pointer }
+.hint small{ display:block; color:#666; margin-top:.5rem }
 
 @media print{
-  html{background:#fff}
-  .sheet{
-    width:auto; height:auto; min-height:0;
-    margin:0; box-shadow:none;
-    /* fill the page box the printer gives us */
-    height:100%;
-  }
+  html,body{ background:#fff; width:8.5in; height:11in; overflow:hidden }
+  .sheet{ margin:0; box-shadow:none; page-break-after:avoid }
   .hint{ display:none !important }
 }
 </style>
@@ -86,5 +87,7 @@ figcaption{ font-size:13pt; line-height:1.3; margin-top:.07in }
 </div>
 
 <p class="hint">
-  Letter portrait, 0.5&Prime; margins. <button onclick="window.print()">print this</button>
+  Letter portrait. <button onclick="window.print()">print this</button>
+  <small>If your browser still prints a header or footer, untick
+  &ldquo;Headers and footers&rdquo; in the print dialog&rsquo;s options.</small>
 </p>
